@@ -47,20 +47,15 @@ public class ArticleApiController {
                 ResponseEntity.status(HttpStatus.OK).body(updated) :
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
-//
-//    //DELETE
-//    @DeleteMapping("/api/articles/{id}")
-//    public ResponseEntity<Article> delete(@PathVariable Long id) {
-//        // 대상 찾기
-//        Article target = articleRepository.findById(id).orElse(null);
-//        // 잘못된 요청 처리
-//        if(target == null){
-//            return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-//        }
-//        // 대상 삭제
-//        articleRepository.delete(target);
-//        return ResponseEntity.status(HttpStatus.OK).build();
-//    }
+
+    //DELETE
+    @DeleteMapping("/api/articles/{id}")
+    public ResponseEntity<Article> delete(@PathVariable Long id) {
+        Article deleted = articleService.delete(id);
+        return (deleted != null) ?
+                ResponseEntity.status(HttpStatus.NO_CONTENT).build() :
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
 
 
 

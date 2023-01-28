@@ -5,6 +5,8 @@ import com.example.firstproject.entity.Article;
 import com.example.firstproject.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -48,5 +50,18 @@ public class ArticleService {
         target.patch(article);
         Article updated = articleRepository.save(target);
         return updated;
+    }
+
+    public Article delete(Long id) {
+        // 1. 대상 엔티티 찾기
+        Article target = articleRepository.findById(id).orElse(null);
+
+        // 2. 잘못된 요청 처리(대상이 없는 경우)
+        if(target == null){
+            return null;
+        }
+        // 3. 대상 삭제 후 응답 변환
+        articleRepository.delete(target);
+        return target;
     }
 }
