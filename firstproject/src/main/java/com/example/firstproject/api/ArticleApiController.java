@@ -36,35 +36,17 @@ public class ArticleApiController {
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
-//
-//    // PATCH
-//
-//    @PatchMapping("/api/articles/{id}")
-//    public ResponseEntity<Article> update(@PathVariable Long id,
-//                          @RequestBody ArticleForm dto){
-//        Article article = dto.toEntity();
-//
-//        // 1. 수정용 엔티티생성
-//        Article article1 = dto.toEntity();
-//        log.info("id: {}, article: {}", id, article1.toString());
-//
-//        // 2. 대상 엔티티를 조회
-//        Article target = articleRepository.findById(id).orElse(null);
-//
-//
-//        // 3. 잘못된 요청 처리(대상이 없거나, id가 다른경우)
-//        if(target == null || id != article1.getId()){
-//            // 400. 잘못된 요청 응답
-//            log.info("잘못된 요청! id: {}, article: {}", id, article1.toString());
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-//        }
-//
-//        // 4. 업데이트 및 정상 읍답(200)
-//
-//        target.patch(article);
-//        Article update = articleRepository.save(target);
-//        return ResponseEntity.status(HttpStatus.OK).body(update);
-//    }
+
+    // PATCH
+
+    @PatchMapping("/api/articles/{id}")
+    public ResponseEntity<Article> update(@PathVariable Long id,
+                          @RequestBody ArticleForm dto){
+        Article updated = articleService.update(id, dto);
+        return (updated != null) ?
+                ResponseEntity.status(HttpStatus.OK).body(updated) :
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
 //
 //    //DELETE
 //    @DeleteMapping("/api/articles/{id}")
@@ -79,7 +61,7 @@ public class ArticleApiController {
 //        articleRepository.delete(target);
 //        return ResponseEntity.status(HttpStatus.OK).build();
 //    }
-//
-//
+
+
 
 }
