@@ -1,0 +1,11 @@
+${AnsiColor.BRIGHT_RED}     _______.___________.    ___      .______     ____    __    ____  ___      .______          _______.
+${AnsiColor.BRIGHT_RED}    /       |           |   /   \     |   _  \    \   \  /  \  /   / /   \     |   _  \        /       |
+${AnsiColor.BRIGHT_RED}   |   (----`---|  |----`  /  ^  \    |  |_)  |    \   \/    \/   / /  ^  \    |  |_)  |      |   (----`
+${AnsiColor.BRIGHT_RED}    \   \       |  |      /  /_\  \   |      /      \            / /  /_\  \   |      /        \   \
+${AnsiColor.BRIGHT_RED}.----)   |      |  |     /  _____  \  |  |\  \----.  \    /\    / /  _____  \  |  |\  \----.----)   |
+${AnsiColor.BRIGHT_RED}|_______/       |__|    /__/     \__\ | _| `._____|   \__/  \__/ /__/     \__\ | _| `._____|_______/
+
+${application.title}
+${application.version}
+Powered by Spring Boot ${spring-boot.version}
+
