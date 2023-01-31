@@ -30,14 +30,11 @@ public class ArticleController {
 
     @PostMapping("/articles/create")
     public String createArticle(ArticleForm form){
-        log.info(form.toString());
 
         //1. 새로운 DTO를 생성! Entitu!
-        Article article = form.toEntity();
-        log.info(form.toString());
+        Article articleEntity = form.toEntity();
         //2. Repository에게 Entity를 DB안에 저장하게 함.
-        Article saved = articleRepository.save(article);
-        log.info(form.toString());
+        Article saved = articleRepository.save(articleEntity);
 
         return "redirect:/articles/" + saved.getId();
     }
