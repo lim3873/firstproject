@@ -5,8 +5,7 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Setter
+@Data
 public class ArticleForm {
 
     private Long id;
